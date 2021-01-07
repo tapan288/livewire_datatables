@@ -47,11 +47,15 @@
                             wire:click="deleteRecords()">
                             Delete
                         </a>
+                        <a href="#" class="dropdown-item" type="button"
+                            onclick="confirm('Are you sure you want to export these Records?') || event.stopImmediatePropagation()"
+                            wire:click="exportSelected()">
+                            Export
+                        </a>
+
                     </div>
                 </div>
                 @endif
-
-
             </div>
         </div>
         <div class=" col-md-4">
@@ -64,11 +68,30 @@
         @include('backend.includes.livewire_flash_messages')
     </div>
     <br>
+
+    @if ($selectPage)
+    <div class="col-md-10 mb-2">
+        @if ($selectAll)
+        <div>
+            You have selected all <strong>{{ $students->total() }}</strong> items.
+        </div>
+        @else
+        <div>
+            You have selected <strong>{{ count($checked) }}</strong> items, Do you want to Select All
+            <strong>{{ $students->total() }}</strong>?
+            <a href="#" class="ml-2" wire:click="selectAll">Select All</a>
+        </div>
+        @endif
+
+    </div>
+    @endif
+
+
     <div class="card-body table-responsive p-0">
         <table class="table table-hover">
             <tbody>
                 <tr>
-                    <th></th>
+                    <th><input type="checkbox" wire:model="selectPage"></th>
                     <th>Student's Name</th>
                     <th>Class</th>
                     <th>Section</th>
@@ -88,7 +111,8 @@
                     <td>{{ $student->email }}</td>
                     <td style="max-width: 250px">{{ $student->address }}</td>
                     <td>{{ $student->phone_number }}</td>
-                    <td><button class="btn btn-danger btn-sm"
+                    <td>
+                        <button class="btn btn-danger btn-sm"
                             onclick="confirm('Are you sure you want to delete this record?') || event.stopImmediatePropagation()"
                             wire:click="deleteSingleRecord({{ $student->id }})"><i class="fa fa-trash"
                                 aria-hidden="true"></i></button>

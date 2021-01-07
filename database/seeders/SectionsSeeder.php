@@ -14,22 +14,6 @@ class SectionsSeeder extends Seeder
      */
     public function run()
     {
-        Section::create([
-            'name' => 'Section A',
-            'class_id' => 1,
-        ]);
-        Section::create([
-            'name' => 'Section B',
-            'class_id' => 1,
-        ]);
-
-        Section::create([
-            'name' => 'Section A',
-            'class_id' => 2,
-        ]);
-        Section::create([
-            'name' => 'Section B',
-            'class_id' => 2,
-        ]);
+        //
     }
 }

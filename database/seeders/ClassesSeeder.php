@@ -14,17 +14,6 @@ class ClassesSeeder extends Seeder
      */
     public function run()
     {
-        Classes::create([
-            'name' => 'Class 1',
-        ]);
-        Classes::create([
-            'name' => 'Class 2',
-        ]);
-        Classes::create([
-            'name' => 'Class 3',
-        ]);
-        Classes::create([
-            'name' => 'Class 4',
-        ]);
+        //
     }
 }
