@@ -125,7 +125,7 @@
     </div>
     <div class="row mt-4">
         <div class="col-sm-6 offset-5">
-            {{ $students->links() }}
+            {{ $students->links('pagination::bootstrap-4') }}
         </div>
     </div>
 </div>
